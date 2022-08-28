@@ -1,0 +1,57 @@
+*{
+    box-sizing: border-box;
+   
+}
+
+#top{
+background-color: rgb(221, 59, 208);
+color: rgb(251, 249, 252);
+height: 4vw;
+padding: 6px;
+}
+#container{
+    display:flex;
+    justify-content: center;
+}
+ul{
+    list-style: none;
+
+}
+li{
+    font-size: 2vw;
+    display: inline;
+    margin: 5px;
+}
+#score{
+    color:white;
+    font-size: 4vh;
+    margin-left:-40px;
+
+}
+#grid{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    width:75vw;
+    padding: 20px;
+    justify-content: space-between;
+}
+.card{
+    margin:10px 1px; 
+    display: inline-grid;
+    width:8vw;
+    height:12vw;
+    border: 2px solid rgba(0, 0, 0, 0.712);
+    border-radius: 10px;
+    box-shadow: rgba(255, 255, 255, 0.671) 0px 5px 15px;
+}
+
+.matched{
+   
+    margin:10px 1px; 
+    display: inline-grid;
+    width:8vw;
+    height:12vw;
+    border: none;
+    
+    
+}

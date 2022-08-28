@@ -1,0 +1,79 @@
+*{
+    box-sizing: border-box;
+    padding:0;
+    margin:none;
+
+   
+}
+body{
+    background-color: rgba(241, 241, 241, 0.226);
+}
+#top{
+background-color: rgb(72, 136, 91);
+color: beige;
+height: 4vw;
+padding: 6px;
+}
+ul{
+    list-style: none;
+
+}
+li{
+    font-size: 2vw;
+    display: inline;
+    margin: 5px;
+}
+#container{
+    display: flex;
+    justify-content: center;
+}
+#body{
+    background: url("../images/snakebg.jpeg");
+    min-height: 90vh;
+    background-size: 100vw,100vh;
+    border:2px black solid;
+    opacity:0.7;
+    background-repeat:no-repeat;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+#board{
+width:95vmin;
+margin-left:-8vw;
+height:75vmin;
+background-image: linear-gradient(rgb(252, 244, 132),rgba(220, 255, 210, 0.938));
+border:2px rgb(24, 80, 16) solid;
+filter: drop-shadow(0 0.4rem 0.45rem rgba(0, 0, 0, 0.5));
+display:grid;
+grid-template-rows: repeat(18,1fr);
+grid-template-columns: repeat(20,1fr);
+}
+.food{
+    background-color: rgb(209, 82, 141);
+    border:0.2vmin solid rgb(211, 211, 211);
+    border-radius:8px;
+}
+.head{
+    /*background-color: rgb(8, 110, 93);*/
+    background-image: linear-gradient(rgb(250, 141, 39),rgba(98, 255, 55, 0.938));
+    transform: scale(1.1);
+    border-radius:10px;
+    border: 0.40vmin solid rgb(8, 110, 93);
+}
+.snake{
+    background-image: linear-gradient(rgb(253, 255, 253),rgba(217, 255, 50, 0.938));
+    border:0.45vmin solid rgb(8, 110, 93);
+    border-radius:11px; 
+}
+#scoreboard{
+    font-size: 3vh;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color:  white;
+    padding:2vh;
+    position:absolute;
+    top:70px;
+    left:60px;
+}
