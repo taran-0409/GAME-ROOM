@@ -3,6 +3,8 @@ let grid=document.querySelector('#grid');
 let moves=document.querySelector('#moves');
 let scored=document.querySelector('#scored');
 let timer=document.querySelector('#time');
+let leastTime=document.getElementById("timehighscore");
+let leastMoves=document.getElementById("moveshighscore");
 let chosencard=[];
 let chosencardid=[];
 const won=[];
@@ -11,6 +13,8 @@ const swap=new Audio("swap.mp3");
 let score=0;
 let move=0;
 let count=0;
+leastTime.innerHTML=localStorage.getItem("lowesttime");
+leastMoves.innerHTML=localStorage.getItem("leastmove");
 const cardarr=[
     {
         name:'img1',
@@ -135,7 +139,7 @@ function match(){
         clearInterval(timer);
         win.play();
         alert('YOU WON!!   TIME TAKEN: '+count +' SECONDS AND NUMBER OF MOVES: '+move);
-        
+        highscore();
         alert('click ok to play again.')
         window.location.reload();
     }
@@ -163,5 +167,35 @@ function flip(){
             alert("You're out of time!");
         }
     }, 1000);
+
+    //ADDING HIGH SCORE
+    //set default highscore in local storage
+    
+    function highscore(){
+        
+        //check condition for highscore
+        if(localStorage.getItem("lowesttime")>count && localStorage.getItem("leastmove")>move){
+            localStorage.setItem("lowesttime", count);
+            localStorage.setItem("leastmove", move);
+            leastTime.innerHTML=localStorage.getItem("lowesttime");
+            leastMoves.innerHTML=localStorage.getItem("leastmove");
+            alert("CONGRATULATIONS!! NEW HIGH SCORE OF TIME AND MOVES")
+
+        }
+        else if(localStorage.getItem("lowesttime")>count && localStorage.getItem("leastmove")<=move){
+            localStorage.setItem("lowesttime", count);
+            leastTime.innerHTML=localStorage.getItem("lowesttime");
+            alert("CONGRATULATIONS!! NEW HIGH SCORE OF TIME ")
+
+        }
+        else if(localStorage.getItem("lowesttime")<=count && localStorage.getItem("leastmove")>move){
+            localStorage.setItem("leastmove", move);
+            leastMoves.innerHTML=localStorage.getItem("leastmove");
+            alert("CONGRATULATIONS!! NEW HIGH SCORE OF MOVES")
+
+        }
+        
+
+    }
 
 
