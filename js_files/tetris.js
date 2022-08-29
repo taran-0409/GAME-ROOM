@@ -2,6 +2,8 @@
 const grid=document.querySelectorAll('#gameGrid');
 let score=document.getElementById('scored');
 let btn=document.getElementById('btn');
+let highest=document.getElementById("highscore");
+highest.innerHTML=localStorage.getItem("highest");
 let squares= Array.from(document.querySelectorAll('#gameGrid div'));
 //console.log(squares);
 let points=0;
@@ -158,9 +160,23 @@ window.addEventListener("keydown",control);
         score.innerHTML = "Game Over!!!!"
         clearInterval(timer)
         loosesound.play();
+        highscore();
         alert('click ok to play again.')
         window.location.reload();
     }
 }
+ //ADDING HIGH SCORE
+//set default highscore in local storage
+    
+    function highscore(){
+        
+        //check condition for highscore
+        if(localStorage.getItem("highest")<points ){
+            localStorage.setItem("highest", points);
+            highest.innerHTML=localStorage.getItem("highest");
+            alert("CONGRATULATIONS!!You made new High Score")
+
+        }
+    }
 
  
