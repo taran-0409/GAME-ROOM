@@ -69,6 +69,7 @@ img{
     display:flex;
     justify-content:space-around;
     padding: 5px 15px;
+    color: rgb(253, 255, 127);
 }
 #sticker{
     width:55vh;
