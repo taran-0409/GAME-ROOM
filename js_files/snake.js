@@ -8,12 +8,13 @@ const gamesound =new Audio('game.wav');
 let speed=3;
 let score=0;
 let lastpaintTime=0;
+let highest=document.getElementById("highscore");
 //let scoreshow=Document.getElementById('netscore')
 let snakearr=[
     {x:13, y:15}
 ];
 food={x:8,y:4};
-
+highest.innerHTML=localStorage.getItem("highest");
 //functions
 function main(ctime){
     window.requestAnimationFrame(main);
@@ -34,11 +35,26 @@ function iscollide(sarr){
 
     // if snake bumps into wall
     if(snakearr[0].x>=20||snakearr[0].x<=0||snakearr[0].y>=18||snakearr[0].y<=0){
+        highscore();
     return true;
+    
     }
-//otherwise
+   //otherwise
         return false;
 }
+//ADDING HIGH SCORE
+    //set default highscore in local storage
+    
+    function highscore(){
+        
+        //check condition for highscore
+        if(localStorage.getItem("highscore")<score ){
+            localStorage.setItem("highscore", score);
+            highest.innerHTML=localStorage.getItem("highscore");
+            alert("CONGRATULATIONS!!You made new High Score")
+
+        }
+    }
 function gameEngine(){
     //snake array and food update
     if (iscollide(snakearr)){
@@ -97,6 +113,7 @@ function gameEngine(){
     board.appendChild(foodElement);
 }
 
+    
 //main logic 
 
 window.requestAnimationFrame(main);
