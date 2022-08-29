@@ -29,8 +29,10 @@ function main(ctime){
 function iscollide(sarr){
     //if snake bumps into itself
         for(let i=1;i<snakearr.length;i++){
-            if(snakearr[0].x===snakearr[i].x && snakearr[0].y===snakearr[i].y)
-            return true;
+           if(snakearr[0].x===snakearr[i].x && snakearr[0].y===snakearr[i].y){
+                highscore();
+                return true;
+            }
         }
 
     // if snake bumps into wall
